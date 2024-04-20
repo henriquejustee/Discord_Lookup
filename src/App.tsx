@@ -1,73 +1,18 @@
-import { Footer } from './components/Footer';
-import { useState } from 'react';
-import { CiSearch } from "react-icons/ci";
-import { UserComponent } from './components/User';
-// Types
-import { User } from './types/User';
+import Main from "./pages/Main";
+import { Footer } from "./components/Footer";
+
 
 export default function App () {
-  const [userData, setUserData] =  useState<User | null>(null);
-  const [inputValue, setInputValue] = useState("");
-  const [user, setUser] = useState("");
-
-  const handleButtonClick = () => {
-    setUser(inputValue);
-    loadUser(inputValue);
-  };
-
-  const loadUser = async(user: string) => {
-    const res = await fetch(`https://discord-lookup-api-ashen.vercel.app/v1/user/${user}`);
-    const data = await res.json()
-    const {username, avatar, badges, accent_color, global_name, banner_link, banner_color}: User = data;
-    console.log(data)
-
-    const userData = {
-      username,
-      avatar,
-      badges,
-      accent_color,
-      global_name,
-      banner_link,
-      banner_color
-    }
-    setUserData(userData);
-  }
+ 
 
   return (
-    <>
-   <div className='flex flex-col justify-between min-h-screen'>
-    <div className='pt-20'>
-      <div className='backdrop-blur-xl shadow-2xl shadow-black/50 mx-auto w-fit p-12 rounded-2xl'>
-      <div className=" text-center pt-5">
-        <h1 className="underline decoration-sky-500 text-4xl bg-gradient-to-r from-teal-200 to-teal-500 bg-clip-text text-transparent font-light pb-1">Discord ID Lookup</h1>
-        <p className='text-md max-w-sm text-white/80 whitespace-normal text-balance font-extralight'>This unofficial tool allows you to look up a Discord user or bot by their ID. It’s not affiliated with Discord itself. Simply input the user’s ID, and it will provide relevant information1. You can find it here.</p>
-      </div>
-
-      <div className='justify-evenly flex pt-5'>
-      <div className=''>
-        <input type='text' onChange={(e) => setInputValue(e.target.value) } placeholder='Search' className='shadow-2xl font-extralight mt-1 p-3 text-sm w-full border rounded-md focus:border-gray-200 duration-300'></input>
-    </div>
-      <div className='flex'>
-     
-      <button value="Search" onClick={handleButtonClick} className='shadow-2xl mt-1 p-3 bg-red-200 border rounded-md focus:border-gray-200 duration-300' >
-        <span>
-          <CiSearch></CiSearch>
-        </span>
-      </button>
-    </div>
-      </div>
-
-     
-      </div>
-      { user && <UserComponent {...userData}/>}
-    <div>
+    
+    <div className="font-Inter bg-fixed bg-no-repeat bg-cover pt-20 bg-[url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6d66e85e-f832-4fe9-b642-1ecddde1a3a9/dg1vi34-67d81e1a-678a-4afc-acdd-91761b20ed62.png/v1/fill/w_1192,h_670,q_70,strp/nature___from_up_on_poppy_hill_by_tsuyoiiii_dg1vi34-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvNmQ2NmU4NWUtZjgzMi00ZmU5LWI2NDItMWVjZGRkZTFhM2E5XC9kZzF2aTM0LTY3ZDgxZTFhLTY3OGEtNGFmYy1hY2RkLTkxNzYxYjIwZWQ2Mi5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.9IQi1TeVzj_br8nsFndKFL6P3_1MfkL8Vny-EZ5nln8')]">
+      <Main/>
+      <Footer/>
       
-      </div>
-     
     </div>
-    <Footer/>
-    </div>
-    </>
+    
   );
 };
 
