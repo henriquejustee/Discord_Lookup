@@ -42,11 +42,11 @@ export default function Main () {
   return (
     <>
    <div className='min-h-screen font-Inter bg-fixed bg-cover' >
-    <div className='pt-10'>
+    <div>
       <div className='backdrop-blur-xl shadow-2xl shadow-black/50 mx-auto w-fit p-12 rounded-2xl'>
       <div className=" text-center pt-5">
         <h1 className="underline decoration-sky-500 text-4xl bg-gradient-to-r from-teal-200 to-teal-500 bg-clip-text text-transparent font-light pb-1">Discord ID Lookup</h1>
-        <p className='text-md max-w-sm text-white/80 whitespace-normal text-balance font-extralight'>This unofficial tool allows you to look up a Discord user or bot by their ID. It’s not affiliated with Discord itself. Simply input the user’s ID, and it will provide relevant information. You can find it <a href='https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID' className='text-blue-700 underline'>here</a>.</p>
+        <p className='text-md max-w-sm text-white/80 whitespace-normal text-left font-extralight'>This unofficial tool allows you to look up a Discord user or bot by their ID. It’s not affiliated with Discord itself. Simply input the user’s ID, and it will provide relevant information. You can learn how to find your ID <a href='https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID' className='text-blue-500 underline'>here</a>.</p>
       </div>
 
       <div className='justify-evenly flex pt-5'>
