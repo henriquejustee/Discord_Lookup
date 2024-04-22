@@ -1,6 +1,10 @@
 import { User } from "../types/User"
 
-const badgeIcons = {
+interface BadgeIcons {
+  [key: string]: string;
+}
+
+const badgeIcons: BadgeIcons = {
   'HOUSE_BRAVERY': 'https://img.icons8.com/fluency/48/dsicord-hypesquad-brilliance-house-badge.png',
   'ACTIVE_DEVELOPER': 'https://img.icons8.com/fluency/48/discord-active-developer-badge.png',
   'EARLY_VERIFIED_BOT_DEVELOPER': 'https://img.icons8.com/fluency/48/discord-early-verified-bot-developer-badge.png',
@@ -27,8 +31,8 @@ export const UserComponent = ({
 
         <div className="flex space-x-2">
         {badges && badges.length > 0 ? (
-          badges.map((badge, index) => (
-            <img key={index} src={badgeIcons[badge]}/>
+          badges.map((badge) => (
+            <img key={badge} src={badgeIcons[badge]}/>
           ))
         ) : (
           <p className="py-1">No badges available</p>
